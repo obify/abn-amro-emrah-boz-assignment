@@ -1,0 +1,42 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      show-sql: true
+      ddl-auto: update
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: will_be_provided_by_email
+    password: will_be_provided_by_email
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            trust: smtp.gmail.com
+  main:
+    allow-circular-references: true
+logging:
+  level:
+    org: INFO
+#service configurations
+retail:
+  service:
+    notificationChannels: email,sms
+    indicationThreshold: 10

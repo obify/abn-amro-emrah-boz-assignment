@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>XYZ Retail Company</title>
+
+</head>
+<body>
+<div class="row text-center">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h1>XYZ Retail Company</h1>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="row col-md-12">
+            <h1>Customer Operations</h1>
+        </div>
+
+        <div class="row col-md-12">
+            <h1>Product Search</h1>
+        </div>
+        <!-- Product Search -->
+        <div class="row col-md-12">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"
+                                  id="basic-addon1">http://localhost:8080/api/v1/product/</span>
+                        </div>
+                        <input type="text" class="form-control" aria-describedby="basic-addon3" aria-label="1"
+                               id="txtProductName">
+                        <button type="button" class="btn btn-primary col-md-12" id="btnSearchProduct">Search Product
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row col-md-6" id="productSearchDialog">
+
+                <!-- Product Listing -->
+                <div class="row col-md-12">
+                    <h1>Product Search</h1>
+                </div>
+                <div class="row col-md-12" id="searchResult" style="margin-top: 10px">
+
+                </div>
+
+                <!-- Add to Cart -->
+                <div class="row col-md-12">
+                    <h1>Add To Cart</h1>
+                </div>
+                <div class="row col-md-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"
+                                  id="basic-addon312">Product Id</span>
+                        </div>
+                        <input type="text" class="form-control" aria-describedby="basic-addon3" aria-label="1"
+                               id="txtProductId">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"
+                                  id="basic-addon345">Product Quantity</span>
+                        </div>
+                        <input type="text" class="form-control" aria-describedby="basic-addon3" aria-label="1"
+                               id="txtProductQuantity">
+                        <button type="button" class="btn btn-primary col-md-12" id="btnAddToCart">Add To Cart
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Customer Cart -->
+            <div class="col-md-6" id="customerCart">
+
+
+                <div class="row col-md-12">
+                    <h1>Shopping Cart</h1>
+                </div>
+                <div class="row col-md-12" id="shoppingCart" style="margin-top: 10px">
+
+                </div>
+                <div class="row" style="margin-top: 10px">
+                    <div class="row row col-md-12">
+                        <div class="col-md-2">Order Id</div>
+                        <div class="col-md-10" id="divOrderId"></div>
+                    </div>
+                    <div class="row row col-md-12">
+                        <div class="col-md-6">Total Item Count</div>
+                        <div class="col-md-6" id="divOrderTotalItemCount"></div>
+                    </div>
+                    <div class="row row col-md-12">
+                        <div class="col-md-6">Order Total Amount</div>
+                        <div class="col-md-6" id="divOrderTotalAmount"></div>
+                    </div>
+                    <div class="row col-md-12">
+                        <button type="button" class="btn btn-primary col-md-12" id="btnCompleteOrder">Complete Order
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="col-md-5">
+        <div class="row col-md-12">
+            <h1>Employee Operations</h1>
+        </div>
+        <div class="row col-md-12">
+            <h1>Order Search</h1>
+        </div>
+        <!-- Order Search -->
+        <div class="row col-md-12">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"
+                                  id="basic-addon11">http://localhost:8080/api/v1/order/</span>
+                        </div>
+                        <input type="text" class="form-control" aria-describedby="basic-addon3" aria-label="1"
+                               id="txtOrderId">
+                        <button type="button" class="btn btn-primary col-md-12" id="btnSearchOrder"
+                                style="margin-top: 10px;">Search Order
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row col-md-12" id="orderSearchDialog">
+
+                <!-- Order Search Result -->
+                <div class="row col-md-12">
+                    <h1>Order Search Result</h1>
+                </div>
+                <div class="row col-md-12" id="orderSearchResult" style="margin-top: 10px">
+
+                </div>
+                <div class="row" style="margin-top: 10px">
+                    <div class="row row col-md-12">
+                        <div class="col-md-6">Order Id</div>
+                        <div class="col-md-6" id="divEmployeeOrderId"></div>
+                    </div>
+                    <div class="row row col-md-12">
+                        <div class="col-md-6">Total Item Count</div>
+                        <div class="col-md-6" id="divEmployeeOrderTotalItemCount"></div>
+                    </div>
+                    <div class="row row col-md-12">
+                        <div class="col-md-6">Order Total Amount</div>
+                        <div class="col-md-6" id="divEmployeeOrderTotalAmount"></div>
+                    </div>
+                    <div class="row row col-md-12">
+                        <div class="col-md-6">Order Date</div>
+                        <div class="col-md-6" id="divEmployeeOrderDate"></div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Reporting Buttons-->
+        <div class="row col-md-12">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="input-group">
+                        <button type="button" class="btn btn-primary col-md-12" id="btnTopReport"
+                                style="margin-top: 10px;">Get Daily Top
+                            Products
+                        </button>
+                        <button type="button" class="btn btn-primary col-md-12" id="btnLeastReport"
+                                style="margin-top: 10px;">Least Selling
+                            Product Monthly
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Daily Gained Amount -->
+        <div class="row col-md-12">
+            <h1>Daily Gained Amount</h1>
+        </div>
+        <div class="row col-md-12">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                            <span class="input-group-text"
+                                  id="basic-addon332">Start Date</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="basic-addon3" aria-label="1"
+                       id="txtStartDate" placeholder="YYYY-MM-DD">
+                <div class="input-group-prepend">
+                            <span class="input-group-text"
+                                  id="basic-addon34">End Date</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="basic-addon3" aria-label="1"
+                       id="txtEndDate" placeholder="YYYY-MM-DD">
+                <button type="button" class="btn btn-primary col-md-12" id="btnDailyReport" style="margin-top: 10px;">
+                    Daily Gained Amount Report
+                </button>
+
+            </div>
+        </div>
+
+        <div class="row col-md-12" id="reportingDialog">
+
+            <!-- Order Search Result -->
+            <div class="row col-md-12">
+                <h1>Reporting Result</h1>
+            </div>
+            <div class="row col-md-12" id="reportingResult" style="margin-top: 10px">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<div class="row col-md-12">
+    <h1>Operation Logs</h1>
+</div>
+<div class="row col-md-12" id="operationsLog">
+
+</div>
+
+
+<div class="row col-md-12">
+    <div class="row col-md-12"><h1>Related Links</h1></div>
+    <div class="row col-md-12"><a href="https://github.com/phclummia/abn-amro-emrah-boz-assignment" target="_blank">Repository
+        GitHub Link</a></div>
+    <div class="row col-md-12"><a href="http://localhost:8080/swagger-ui/#/" target="_blank">REST API Contract</a></div>
+    <div class="row col-md-12"><a href="http://localhost:8080/h2-console/" target="_blank">Embedded H2 Database
+        Dashboard</a>
+    </div>
+
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $("#productSearchDialog").hide();
+        $("#customerCart").hide();
+        $("#orderSearchDialog").hide()
+        $("#reportingDialog").hide();
+        var currentCartId;
+        var operationLog = [];
+
+
+        $("#btnSearchProduct").click(function () {
+            var productName = $("#txtProductName").val();
+            $.ajax({
+                type: 'GET',
+                url: "http://localhost:8080/api/v1/product/" + productName,
+                responseType: 'application/json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic Qm9iOnBhc3N3b3JkMQ==");
+                },
+                success: function (result) {
+
+                    var tableRows = '<table class="table table-striped" style="width:100%"><thead><th>Product ID</th><th>Product Name</th><th>Available Stock</th><th>Price</th></thead>';
+
+                    result.forEach(item => {
+                        var $tr = $('<tr>').append(
+                            $('<td>').text(item.id),
+                            $('<td>').text(item.name),
+                            $('<td>').text(item.availableStock),
+                            $('<td>').text(item.price)
+                        );
+                        tableRows += "<tr>" + $tr.wrap('<p>').html() + "</tr>";
+                    });
+
+                    tableRows += '</table>';
+
+                    $("#searchResult").html(tableRows);
+                    $("#productSearchDialog").show();
+
+
+                    addOperationLog({
+                        operation: "Product Search",
+                        result: "Success",
+                        searchKey: (productName === "" ? "String.empty" : productName),
+                        resultCount: result.length
+                    });
+                },
+                error: function (e) {
+
+                    addOperationLog({
+                        operation: "Product Search",
+                        result: "Error",
+                        searchKey: (productName === "" ? "String.empty" : productName),
+                        resultCount: 0,
+                        exception: e.responseJSON
+                    });
+                }
+            });
+        });
+
+
+        $("#btnAddToCart").click(function () {
+
+            var productId = $("#txtProductId").val();
+            var quantity = $("#txtProductQuantity").val();
+            var data = {
+                productId: productId,
+                quantity: quantity,
+                orderId: currentCartId
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: "http://localhost:8080/api/v1/order/addToCart",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                responseType: 'application/json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic Qm9iOnBhc3N3b3JkMQ==");
+                },
+                success: function (result) {
+
+                    var tableRows = '<table class="table table-striped" style="width:100%"><thead><th>Product ID</th><th>Product Name</th><th>Quantity</th><th>Price</th></thead>';
+
+                    result.products.forEach(item => {
+                        var $tr = $('<tr>').append(
+                            $('<td>').text(item.productId),
+                            $('<td>').text(item.productName),
+                            $('<td>').text(item.productQuantity),
+                            $('<td>').text(item.productAmount)
+                        );
+                        tableRows += "<tr>" + $tr.wrap('<p>').html() + "</tr>";
+                    });
+
+                    tableRows += '</table>';
+
+                    $("#shoppingCart").html(tableRows);
+                    $("#customerCart").show();
+                    $("#divOrderTotalItemCount").html(result.totalItemCount);
+                    $("#divOrderTotalAmount").html(result.orderTotalAmount);
+                    $("#divOrderId").html(result.id);
+
+                    currentCartId = result.id;
+                    addOperationLog({
+                        operation: "Add To Cart",
+                        result: "Success",
+                        orderId: currentCartId,
+                        "productId": productId,
+                        "quantity": quantity
+                    });
+
+                },
+                error: function (e) {
+
+                    addOperationLog({
+                        operation: "Add To Cart",
+                        result: "Error",
+                        orderId: currentCartId,
+                        "productId": productId,
+                        "quantity": quantity,
+                        exception: e.responseJSON
+                    });
+                }
+            });
+        });
+
+
+        $("#btnCompleteOrder").click(function () {
+
+
+            $.ajax({
+                type: 'PATCH',
+                url: "http://localhost:8080/api/v1/order/" + currentCartId,
+                dataType: 'json',
+                responseType: 'application/json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic Qm9iOnBhc3N3b3JkMQ==");
+                },
+                success: function (result) {
+
+                    $("#shoppingCart").html("");
+                    $("#customerCart").hide();
+                    $("#divOrderTotalItemCount").html("");
+                    $("#divOrderTotalAmount").html("");
+
+                    addOperationLog({
+                        operation: "Complete Order",
+                        result: "Success",
+                        orderId: currentCartId
+                    });
+                    currentCartId = "";
+                },
+                error: function (e) {
+
+                    addOperationLog({
+                        operation: "Complete Order",
+                        result: "Error",
+                        orderId: currentCartId,
+                        exception: e.responseJSON
+                    });
+                }
+            });
+        });
+
+
+        $("#btnSearchOrder").click(function () {
+
+            var orderId = $("#txtOrderId").val();
+            $.ajax({
+                type: 'GET',
+                url: "http://localhost:8080/api/v1/order/" + orderId,
+                dataType: 'json',
+                responseType: 'application/json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic TmVpbDpwYXNzd29yZDE=");// employee authorization
+                },
+                success: function (result) {
+
+                    var tableRows = '<table class="table table-striped" style="width:100%"><thead><th>Product ID</th><th>Product Name</th><th>Quantity</th><th>Price</th></thead>';
+
+                    result.products.forEach(item => {
+                        var $tr = $('<tr>').append(
+                            $('<td>').text(item.productId),
+                            $('<td>').text(item.productName),
+                            $('<td>').text(item.productQuantity),
+                            $('<td>').text(item.productAmount)
+                        );
+                        tableRows += "<tr>" + $tr.wrap('<p>').html() + "</tr>";
+                    });
+
+                    tableRows += '</table>';
+
+                    $("#orderSearchResult").html(tableRows);
+                    $("#orderSearchDialog").show()
+                    $("#divEmployeeOrderTotalItemCount").html(result.totalItemCount);
+                    $("#divEmployeeOrderTotalAmount").html(result.orderTotalAmount);
+                    $("#divEmployeeOrderId").html(result.id);
+                    $("#divEmployeeOrderDate").html(result.lastUpdate);
+
+                    addOperationLog({
+                        operation: "Order Search",
+                        result: "Success",
+                        orderId: orderId,
+                        totalItemCount: result.totalItemCount,
+                        totalAmount: result.orderTotalAmount
+                    });
+
+                },
+                error: function (e) {
+
+                    addOperationLog({
+                        operation: "Order Search",
+                        result: "Error",
+                        orderId: orderId,
+                        exception: e.responseJSON
+                    });
+                }
+            });
+        });
+
+
+        $("#btnTopReport").click(function () {
+
+            $.ajax({
+                type: 'GET',
+                url: "http://localhost:8080/api/v1/reporting/dailyTopProducts",
+                dataType: 'json',
+                responseType: 'application/json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic TmVpbDpwYXNzd29yZDE=");// employee authorization
+                },
+                success: function (result) {
+
+                    var tableRows = '<table class="table table-striped" style="width:100%"><thead><th>Product Name</th><th>Available Stok</th><th>Price</th></thead>';
+
+                    result.forEach(item => {
+                        var $tr = $('<tr>').append(
+                            $('<td>').text(item.name),
+                            $('<td>').text(item.availableStock),
+                            $('<td>').text(item.price)
+                        );
+                        if (item.lowQuantity) {
+                            tableRows += "<tr style='background-color: red;'>" + $tr.wrap('<p>').html() + "</tr>";
+
+                        } else {
+                            tableRows += "<tr>" + $tr.wrap('<p>').html() + "</tr>";
+                        }
+                    });
+
+                    tableRows += '</table>';
+
+                    $("#reportingResult").html(tableRows);
+                    $("#reportingDialog").show();
+
+                    addOperationLog({
+                        operation: "Daily Top Products",
+                        result: "Success",
+                        totalItemCount: result.length
+                    });
+
+                },
+                error: function (e) {
+                    addOperationLog({
+                        operation: "Daily Top Products",
+                        result: "Error",
+                        exception: e.responseJSON
+                    });
+                }
+            });
+        });
+
+
+        $("#btnLeastReport").click(function () {
+
+            $.ajax({
+                type: 'GET',
+                url: "http://localhost:8080/api/v1/reporting/leastSellingProductMonthly",
+                dataType: 'json',
+                responseType: 'application/json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic TmVpbDpwYXNzd29yZDE=");// employee authorization
+                },
+                success: function (result) {
+
+                    var tableRows = '<table class="table table-striped" style="width:100%"><thead><th>Product Name</th><th>Available Stok</th><th>Price</th></thead>';
+                    var $tr = $('<tr>').append(
+                        $('<td>').text(result.name),
+                        $('<td>').text(result.availableStock),
+                        $('<td>').text(result.price)
+                    );
+                    if (result.lowQuantity) {
+                        tableRows += "<tr style='background-color: red;'>" + $tr.wrap('<p>').html() + "</tr>";
+
+                    } else {
+                        tableRows += "<tr>" + $tr.wrap('<p>').html() + "</tr>";
+                    }
+                    tableRows += '</table>';
+
+                    $("#reportingResult").html(tableRows);
+                    $("#reportingDialog").show();
+
+                    addOperationLog({
+                        operation: "Monthly Least Selling Product",
+                        result: "Success"
+                    });
+
+                },
+                error: function (e) {
+                    addOperationLog({
+                        operation: "Monthly Least Selling Product",
+                        result: "Error",
+                        exception: e.responseJSON
+                    });
+                }
+            });
+        });
+
+
+        $("#btnDailyReport").click(function () {
+
+
+            $.ajax({
+                type: 'GET',
+                url: "http://localhost:8080/api/v1/reporting/dailyGainedAmount?startDate=" + $("#txtStartDate").val() + "&endDate=" + $("#txtEndDate").val(),
+                dataType: 'json',
+                responseType: 'application/json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic TmVpbDpwYXNzd29yZDE=");// employee authorization
+                },
+                success: function (result) {
+
+                    var tableRows = '<table  class="table table-striped"  style="width:100%"><thead><th>Sale Amount</th><th>Day</th></thead>';
+
+                    result.forEach(item => {
+                        var $tr = $('<tr>').append(
+                            $('<td>').text(item.saleAmount),
+                            $('<td>').text(item.day)
+                        );
+                        tableRows += "<tr>" + $tr.wrap('<p>').html() + "</tr>";
+                    });
+
+                    tableRows += '</table>';
+
+                    $("#reportingResult").html(tableRows);
+                    $("#reportingDialog").show();
+
+                    addOperationLog({
+                        operation: "Daily Gained Amount Report",
+                        result: "Success"
+                    });
+
+                },
+                error: function (e) {
+                    addOperationLog({
+                        operation: "Daily Gained Amount Report",
+                        result: "Error",
+                        exception: e.responseJSON
+                    });
+                }
+            });
+        });
+
+        function addOperationLog(obj) {
+            operationLog.push(obj);
+            $("#operationsLog").html("");
+            for (var i = operationLog.length - 1; i >= 0; i--) {
+                $("#operationsLog").append(JSON.stringify(operationLog[i], undefined, 2) + "<br/>");
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
